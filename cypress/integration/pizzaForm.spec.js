@@ -55,4 +55,14 @@ describe('add a user', ()=>{
         cy.get('.card-title').contains('abc')
     })
 
+
+    it('can submit a second user', ()=>{
+        cy.get('[name="orderForm"]').click()
+        cy.get('[name="GrilledChicken"]').click().should('have.value', "on")
+        cy.get('[name="name"]').type('nick')
+        cy.get('[name="submit"]').click()
+        cy.get('[name="home"]').click()
+        cy.get('.card-title').contains('nick')
+    })
+
 })
