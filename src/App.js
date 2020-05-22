@@ -125,14 +125,14 @@ const App = () => {
   return (
     <div>
       <nav style={{textAlign:'right', display:'flex', justifyContent:'space-between'}}>
-      <NavLink to='/'>Home</NavLink>
-      <NavLink to='/pizza'>Order Now</NavLink>
+      <NavLink name='home' to='/'>Home</NavLink>
+      <NavLink name='orderForm' to='/pizza'>Order Now</NavLink>
       </nav>
       <h1>Lambda Eats</h1>
 
       <Switch>
 
-        <Route path='/pizza'><PizzaForm values={formValues} onChange={onInputChange} onSubmit={onSubmit} onCheckBox={onCheckboxChange} disabled={disabled} /></Route>
+        <Route path='/pizza'><PizzaForm values={formValues} onChange={onInputChange} onSubmit={onSubmit} onCheckBox={onCheckboxChange} disabled={disabled} errors={formErrors} /></Route>
         <Route path='/'><HomePage orders={orders} /></Route>
       </Switch>
     </div>

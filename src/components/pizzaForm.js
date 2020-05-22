@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 
 export default function PizzaForm(props){
-    const {values, onChange, onSubmit, onCheckBox, disabled} = props;
+    const {values, onChange, onSubmit, onCheckBox, disabled, errors} = props;
 
     return(
     <Form>
@@ -12,7 +12,7 @@ export default function PizzaForm(props){
             <FormGroup className='name'>
                 <Label>Name</Label>
                 <Input name='name' type='text' placeholder='Enter Name' onChange={onChange}></Input>
-                <FormFeedback></FormFeedback>
+    <FormFeedback name='nameError'>{errors.name}</FormFeedback>
             </FormGroup>
             <FormGroup>
                 <Label>Sauce</Label>
@@ -49,9 +49,9 @@ export default function PizzaForm(props){
                 <Label>Special Instructions</Label>
                 <Input type='text' name='specialInstructions' onChange={onChange} placeholder='Type special instructions here'></Input>
             </FormGroup>
-            <Link>
-            <button disabled={disabled} onClick={onSubmit}>Add to Order</button>
-            </Link>
+            
+            <button name='submit' disabled={disabled} onClick={onSubmit}>Add to Order</button>
+            
 
         
     </Form>
